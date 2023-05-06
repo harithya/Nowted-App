@@ -4,7 +4,7 @@ import React from "react";
 const FolderContent = () => {
   return (
     <div className="h-screen overflow-y-auto  pb-5">
-      <div className="px-5 h-20 flex items-center top-0 sticky bg-base-100">
+      <div className="px-5 h-20 flex items-center top-0 sticky bg-base-200">
         <h4 className="text-white text-2xl font-semibold">Personal</h4>
       </div>
       <div className="px-5 space-y-5">
