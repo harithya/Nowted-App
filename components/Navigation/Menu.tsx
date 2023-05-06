@@ -4,11 +4,20 @@ import * as Icon from "@heroicons/react/24/outline";
 
 interface Props {
   icon?: keyof typeof Icon;
+  isActive?: boolean;
 }
-const Menu: React.FC<PropsWithChildren<Props>> = ({ children, ...props }) => {
+const Menu: React.FC<PropsWithChildren<Props>> = ({
+  children,
+  isActive,
+  ...props
+}) => {
   const MyIcon = Icon[props.icon ?? "AcademicCapIcon"];
   return (
-    <div className="py-3 flex  items-center space-x-5 hover:bg-base-200 cursor-pointer h-full w-full px-5">
+    <div
+      className={`py-3 flex   items-center space-x-5  cursor-pointer h-full w-full px-5 ${
+        isActive ? "bg-info text-white" : "hover:bg-base-200"
+      }`}
+    >
       <MyIcon className="h-5 w-5" />
       <label className="font-semibold cursor-pointer">{children}</label>
     </div>

@@ -14,7 +14,7 @@ const Recent = () => {
       </label>
       <div className="mt-1">
         {data.map((val, i) => (
-          <Menu key={i} icon="DocumentTextIcon">
+          <Menu key={i} isActive={i === 0} icon="DocumentTextIcon">
             {val}
           </Menu>
         ))}
