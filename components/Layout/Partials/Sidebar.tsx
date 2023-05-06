@@ -6,7 +6,7 @@ import NavigationContent from "@/components/Navigation/NavigationContent";
 const Sidebar = () => {
   return (
     <div className="w-80 bg-base-100 text-base-content relative">
-      <div className="p-5 pb-2 bg-base-100 flex justify-between items-center sticky top-0 ">
+      <div className="p-5 pb-2 bg-base-100 h-20 flex justify-between items-center sticky top-0 ">
         <div className="h-14 relative w-28">
           <Image
             src={"/img/logo.png"}

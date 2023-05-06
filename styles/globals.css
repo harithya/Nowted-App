@@ -37,6 +37,6 @@ body {
 
 @layer components {
   .btn {
-    @apply text-[16px];
+    @apply text-[16px] rounded-sm;
   }
 }

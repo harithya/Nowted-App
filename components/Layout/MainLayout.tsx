@@ -1,13 +1,15 @@
 import React, { PropsWithChildren } from "react";
 import Sidebar from "./Partials/Sidebar";
-import CategoryBar from "./Partials/CategoryBar";
+import FolderContent from "../FolderContent";
 
 const MainLayout: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <div className="drawer drawer-mobile">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex">
-        <CategoryBar />
+        <div className="lg:w-4/12 w-full h-screen">
+          <FolderContent />
+        </div>
         <div className="hidden lg:block h-screen bg-base-100 w-8/12">
           {children}
         </div>
