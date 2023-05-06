@@ -6,7 +6,9 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-
+    fontFamily: {
+      'sans': ['Source Sans Pro', 'sans-serif']
+    }
   },
   plugins: [require("daisyui")],
 }

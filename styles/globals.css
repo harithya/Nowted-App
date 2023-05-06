@@ -1,7 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
   @apply min-h-screen bg-base-200;
+}
+
+/* CSS custom untuk membuat scrollbar autohide */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-base-300;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.scrollbar-autohide {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.4) transparent;
+  overflow-y: scroll;
+}
+
+.scrollbar-autohide::-webkit-scrollbar-thumb:hover {
+  @apply bg-base-100;
+}
+
+.scrollbar-autohide:hover::-webkit-scrollbar-thumb {
+  @apply bg-base-100;
+}
+
+@layer components {
+  .btn {
+    @apply text-[16px];
+  }
 }
