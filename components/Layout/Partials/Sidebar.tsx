@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { MagnifyingGlassIcon, PlusIcon } from "@heroicons/react/24/outline";
+import NavigationContent from "@/components/Navigation/NavigationContent";
 
 const Sidebar = () => {
   return (
@@ -11,19 +12,19 @@ const Sidebar = () => {
             src={"/img/logo.png"}
             height={300}
             width={300}
-            className="invert"
             alt="Logo App"
           />
         </div>
-        <button className="btn btn-ghost btn-circle">
-          <MagnifyingGlassIcon className="h-5 text-gray-500 w-5" />
+        <button className="btn btn-ghost btn-circle btn-sm">
+          <MagnifyingGlassIcon className="h-6 text-gray-400 w-6" />
         </button>
       </div>
       <div className="px-5">
-        <button className="btn btn-primary w-full">
+        <button className="btn btn-primary w-full uppercase">
           <PlusIcon className="h-5 w-5 mr-3" /> New Note
         </button>
       </div>
+      <NavigationContent />
     </div>
   );
 };
