@@ -8,6 +8,10 @@ body {
   @apply min-h-screen bg-base-200;
 }
 
+.ProseMirror {
+  @apply outline-none;
+}
+
 /* CSS custom untuk membuat scrollbar autohide */
 ::-webkit-scrollbar {
   width: 0px;
@@ -27,16 +31,56 @@ body {
   overflow-y: scroll;
 }
 
-.scrollbar-autohide::-webkit-scrollbar-thumb:hover {
-  @apply bg-base-100;
+.ce-toolbar svg {
+  @apply text-base-content h-6 w-6;
+}
+.ce-popover {
+  @apply bg-base-200   border-primary-focus;
 }
 
-.scrollbar-autohide:hover::-webkit-scrollbar-thumb {
-  @apply bg-base-100;
+.cdx-search-field {
+  @apply bg-primary/50 border-none mb-1;
+}
+.ce-popover .ce-popover__item-icon {
+  @apply bg-primary shadow-none;
+}
+.ce-popover__item:hover {
+  @apply hover:bg-primary-focus;
 }
 
+.ce-toolbar__plus:hover {
+  @apply hover:bg-primary-focus;
+}
+
+.ce-toolbar__settings-btn:hover {
+  @apply hover:bg-primary-focus;
+}
+
+.ce-block--selected .ce-block__content {
+  @apply bg-transparent;
+}
+
+.ce-popover__overlay {
+  @apply bg-transparent;
+}
+
+@media (max-width: 650px) {
+  .ce-toolbar__plus {
+    @apply bg-primary shadow-none  border-none;
+  }
+  .ce-toolbar__settings-btn {
+    @apply bg-primary shadow-none  border-none;
+  }
+}
 @layer components {
   .btn {
     @apply text-[16px] rounded-sm;
+  }
+
+  .select-dropdown {
+    @apply bg-transparent outline-none cursor-pointer;
+  }
+  .select-dropdown option {
+    @apply bg-base-200 p-5;
   }
 }
