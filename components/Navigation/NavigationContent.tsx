@@ -6,7 +6,9 @@ import Menu from "./Menu";
 const NavigationContent = () => {
   return (
     <div>
-      <Recent />
+      <div className="hidden lg:block">
+        <Recent />
+      </div>
       <Folder />
       <div className="pt-8 pb-3">
         <label className="text-sm font-semibold px-5 text-gray-400">More</label>

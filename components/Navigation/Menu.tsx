@@ -15,7 +15,7 @@ const Menu: React.FC<PropsWithChildren<Props>> = ({
   return (
     <div
       className={`py-3 flex   items-center space-x-5  cursor-pointer h-full w-full px-5 ${
-        isActive ? "bg-info text-white" : "hover:bg-base-200"
+        isActive ? "bg-info text-white" : "hover:bg-primary-focus"
       }`}
     >
       <MyIcon className="h-5 w-5" />
