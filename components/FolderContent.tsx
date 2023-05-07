@@ -1,4 +1,5 @@
 import folderDetailDummy from "@/pages/api/hello";
+import Link from "next/link";
 import React from "react";
 
 const FolderContent = () => {
@@ -9,16 +10,15 @@ const FolderContent = () => {
       </div>
       <div className="px-5 space-y-5">
         {folderDetailDummy.map((val, i) => (
-          <div
-            key={i}
-            className="bg-primary p-5 rounded-sm cursor-pointer hover:bg-primary-focus"
-          >
-            <h4 className="text-white font-semibold text-lg">{val.title}</h4>
-            <div className="flex space-x-5 mt-2">
-              <span className="text-gray-400">{val.date}</span>
-              <p className="line-clamp-1 text-white/60">{val.content}</p>
+          <Link href={"/write"} key={i}>
+            <div className="bg-primary p-5 mb-5 rounded-sm cursor-pointer hover:bg-primary-focus">
+              <h4 className="text-white font-semibold text-lg">{val.title}</h4>
+              <div className="flex space-x-5 mt-2">
+                <span className="text-gray-400">{val.date}</span>
+                <p className="line-clamp-1 text-white/60">{val.content}</p>
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
