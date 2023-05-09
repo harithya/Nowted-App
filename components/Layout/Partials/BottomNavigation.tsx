@@ -7,7 +7,7 @@ import React from "react";
 
 const BottomNavigation = () => {
   return (
-    <div className="fixed lg:hidden bg-base-200 bottom-0 right-0 left-0 h-16 items-center px-5 flex justify-between">
+    <div className="fixed lg:hidden bg-base-300 bottom-0 z-50 right-0 left-0 h-16 items-center px-5 flex justify-between">
       <label
         htmlFor="my-drawer-2"
         className="btn btn-ghost rounded-full btn-square"

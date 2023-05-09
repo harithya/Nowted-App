@@ -1,6 +1,6 @@
 import React from "react";
 import { createReactEditorJS } from "react-editor-js";
-import { EDITOR_TOOLS } from "@/utils/constant";
+import { DUMMY_TEXT, EDITOR_TOOLS } from "@/utils/constant";
 
 const ReactEditorJS = createReactEditorJS();
 const TextEditor = () => {
@@ -18,10 +18,11 @@ const TextEditor = () => {
   };
 
   return (
-    <div className="h-full w-full py-5 overflow-y-auto ">
+    <div className="h-full w-auto  py-5   ">
       <ReactEditorJS
         tools={EDITOR_TOOLS}
         placeholder="Type your note in here"
+        defaultValue={DUMMY_TEXT}
       />
     </div>
   );
