@@ -72,6 +72,12 @@ body {
     @apply bg-primary shadow-none  border-none;
   }
 }
+
+.bg-linear::before {
+  @apply absolute inset-0 bg-gradient-to-r from-black to-primary/90;
+  content: "";
+}
+
 @layer components {
   .btn {
     @apply text-[16px] rounded-sm;
@@ -85,6 +91,9 @@ body {
   }
 
   .input {
-    @apply focus:outline-none border-none rounded-sm placeholder:text-neutral;
+    @apply focus:outline-none border-none rounded-sm bg-secondary;
+  }
+  .form-control {
+    @apply space-y-2;
   }
 }
