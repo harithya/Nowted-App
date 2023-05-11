@@ -1,13 +1,13 @@
-/* eslint-disable @next/next/no-img-element */
 import AuthLayout from "@/components/Layout/AuthLayout";
-import MainLayout from "@/components/Layout/MainLayout";
-import { LockClosedIcon, UserIcon } from "@heroicons/react/24/outline";
-import Image from "next/image";
 import React, { ReactElement } from "react";
 
-const Login = () => {
+const Register = () => {
   return (
     <div className="mt-10 space-y-5">
+      <div className="form-control">
+        <label className="font-semibold">Name</label>
+        <input className="input input-bordered w-full" placeholder="Jhon Doe" />
+      </div>
       <div className="form-control">
         <label className="font-semibold">Email</label>
         <input
@@ -16,10 +16,7 @@ const Login = () => {
         />
       </div>
       <div className="form-control">
-        <div className="flex justify-between">
-          <label className="font-semibold">Password</label>
-          <label className="font-medium">Forget Password ?</label>
-        </div>
+        <label className="font-semibold">Password</label>
         <input className="input input-bordered w-full" placeholder="****" />
       </div>
       <div className="form-control ">
@@ -36,24 +33,20 @@ const Login = () => {
         <button className="btn btn-info w-full text-lg capitalize">
           Sign In
         </button>
-        <div className="flex justify-center items-center space-x-3">
-          <label className="text-gray-400">Dont have an account yet?</label>
-          <a href="#" className="font-bold">
-            Register now
-          </a>
-        </div>
       </div>
     </div>
   );
 };
 
-Login.getLayout = (page: ReactElement) => (
-  <AuthLayout
-    title="Masuk ke akun kamu"
-    subtitle="Remember everything and tackle any project with your notes, tasks, and schedule all in one place."
-  >
-    {page}
-  </AuthLayout>
-);
+Register.getLayout = (page: ReactElement) => {
+  return (
+    <AuthLayout
+      title="Bikin akun baru"
+      subtitle="Nggak susah kok, kamu cuma tinggal masukin beberapa data aja terus langsung jadi deh!"
+    >
+      {page}
+    </AuthLayout>
+  );
+};
 
-export default Login;
+export default Register;
