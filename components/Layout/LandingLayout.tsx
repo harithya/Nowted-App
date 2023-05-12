@@ -13,7 +13,7 @@ const LandingLayout: React.FC<PropsWithChildren> = ({ children }) => {
             height={50}
             width={120}
             alt="Logo App"
-            className="h-full w-full"
+            className="h-full w-full object-contain"
           />
         </div>
         <div className="lg:flex hidden space-x-10">
@@ -30,9 +30,12 @@ const LandingLayout: React.FC<PropsWithChildren> = ({ children }) => {
             Contact Us
           </a>
         </div>
-        <button className="btn cursor-pointer btn-primary  capitalize">
+        <Link
+          href={"/auth/login"}
+          className="btn cursor-pointer btn-primary  capitalize"
+        >
           Login Now
-        </button>
+        </Link>
       </div>
       <div className="lg:px-56 px-10 h-full pb-20">{children}</div>
       <RadialTop />
