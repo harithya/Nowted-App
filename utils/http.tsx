@@ -7,16 +7,16 @@ const http = axios.create({
   },
 });
 
-// // set token to header
-// http.interceptors.request.use(
-//   async (config) => {
-//     const token = await getCookie("token");
-//     if (token) {
-//       config.headers.Authorization = `Bearer ${token}`;
-//     }
-//     return config;
-//   },
-//   (error) => Promise.reject(error)
-// );
+// set token to header
+http.interceptors.request.use(
+  async (config) => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
 
 export default http;
