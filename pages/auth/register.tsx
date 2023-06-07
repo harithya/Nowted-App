@@ -1,40 +1,76 @@
+import Input from "@/components/UI/Form/Input";
 import AuthLayout from "@/components/Layout/AuthLayout";
+import http from "@/utils/http";
 import React, { ReactElement } from "react";
+import { useForm } from "react-hook-form";
+import { useMutation } from "react-query";
+import toast from "react-simple-toasts";
+import Button from "@/components/UI/Button";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
+interface RegisterForm {
+  name: string;
+  email: string;
+  password: string;
+}
 const Register = () => {
+  const { register, handleSubmit, reset } = useForm<RegisterForm>();
+
+  const router = useRouter();
+  const mutation = useMutation({
+    mutationFn: async (data: RegisterForm) => {
+      try {
+        const req = await http.post("auth/register", data);
+        return Promise.resolve(req.data);
+      } catch (error: any) {
+        return Promise.reject(error.response.data);
+      }
+    },
+    onError: (error: any) => {
+      toast(error.message);
+    },
+    onSuccess: (res) => {
+      reset();
+      router.replace("/auth/login");
+      toast(res.message);
+    },
+  });
+  const onSubmit = async (data: RegisterForm) => mutation.mutateAsync(data);
+
   return (
-    <div className="mt-10 space-y-5">
-      <div className="form-control">
-        <label className="font-semibold">Name</label>
-        <input className="input input-bordered w-full" placeholder="Jhon Doe" />
-      </div>
-      <div className="form-control">
-        <label className="font-semibold">Email</label>
-        <input
-          className="input input-bordered w-full"
-          placeholder="example@gmail.com"
-        />
-      </div>
-      <div className="form-control">
-        <label className="font-semibold">Password</label>
-        <input className="input input-bordered w-full" placeholder="****" />
-      </div>
-      <div className="form-control ">
-        <label className="label cursor-pointer flex-row-reverse justify-end">
-          <span className="font-medium ml-5">Remember me</span>
-          <input
-            type="checkbox"
-            checked
-            className="checkbox checkbox-primary"
-          />
-        </label>
-      </div>
+    <form className="mt-10 space-y-5" onSubmit={handleSubmit(onSubmit)}>
+      <Input
+        label="Nama Lengkap"
+        placeholder="Jhon Doe"
+        {...register("name")}
+      />
+      <Input
+        label="Email"
+        placeholder="example@email.com"
+        {...register("email")}
+      />
+      <Input
+        label="Password"
+        type="password"
+        placeholder="****"
+        {...register("password")}
+      />
       <div className="space-y-5">
-        <button className="btn btn-info w-full text-lg capitalize">
-          Sign In
-        </button>
+        <Button
+          className={`btn btn-info w-full text-lg capitalize mt-5`}
+          isLoading={mutation.isLoading}
+        >
+          Register
+        </Button>
       </div>
-    </div>
+      <div className="flex justify-center items-center space-x-3">
+        <label className="text-gray-400">Already have an account?</label>
+        <Link href="/auth/login" className="font-bold">
+          Login now
+        </Link>
+      </div>
+    </form>
   );
 };
 

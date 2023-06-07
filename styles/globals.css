@@ -74,7 +74,7 @@ body {
 }
 
 .bg-linear::before {
-  @apply absolute inset-0 bg-gradient-to-r from-black to-primary/90;
+  @apply absolute inset-0 bg-base-100/90 backdrop-blur-lg;
   content: "";
 }
 
